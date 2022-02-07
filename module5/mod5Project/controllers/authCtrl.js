@@ -58,7 +58,7 @@ exports.postRegister = asyncHandler(async (req, res) => {
   const errors = validationResult(req);
 
   if (!errors.isEmpty()) {
-    return res.render("auth/login.hbs", {
+    return res.render("auth/register.hbs", {
       title: "Register Page",
       errorMessage: errors.array()[0].msg,
       password,
