@@ -8,7 +8,8 @@ const salt = 12;
 
 exports.getLogin = (req, res) => {
   console.log("Get Login");
-  res.render("auth/login.hbs"), { title: "Login Page" };
+  const { password, username } = req.body;
+  res.render("auth/login.hbs"), { title: "Login Page", password, username };
 };
 exports.postLogin = asyncHandler(async (req, res) => {
   console.log("Post Login");
@@ -21,8 +22,6 @@ exports.postLogin = asyncHandler(async (req, res) => {
     return res.render("auth/login.hbs", {
       title: "Login Page",
       errorMessage: errors.array()[0].msg,
-      password,
-      username,
     });
   }
 
