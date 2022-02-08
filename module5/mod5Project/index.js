@@ -75,9 +75,13 @@ app.use(courseRoutes);
 app.use(authRoutes);
 
 // load page not found
-// app.use((req, res) => {
-//   res.render("404.hbs");
-// });
+app.use((req, res) => {
+  res.render("404.hbs");
+});
+
+app.use((error, req, res, next) => {
+  res.render("500.hbs", { error });
+});
 
 const server = app.listen(
   port,
