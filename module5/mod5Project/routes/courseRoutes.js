@@ -14,12 +14,12 @@ const {
 } = require("../controllers/courseCtrl");
 
 router.get("/", getHome);
-router.get("/course/create", getCreate);
-router.post("/course/create", courseValidation(), postCreate);
-router.get("/details/:courseId", getDetails);
-router.get("/edit/:courseId", getEdit);
-router.post("/edit/:courseId", courseValidation(), postEdit);
-router.post("/delete/:courseId", postDelete);
-router.post("/enroll/:courseId", postEnroll);
+router.get("/course/create", isAuth, getCreate);
+router.post("/course/create", isAuth, courseValidation(), postCreate);
+router.get("/details/:courseId", isAuth, getDetails);
+router.get("/edit/:courseId", isAuth, getEdit);
+router.post("/edit/:courseId", isAuth, courseValidation(), postEdit);
+router.post("/delete/:courseId", isAuth, postDelete);
+router.post("/enroll/:courseId", isAuth, postEnroll);
 
 module.exports = router;

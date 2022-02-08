@@ -101,11 +101,12 @@ exports.getDetails = async (req, res) => {
   }
 };
 
-exports.getEdit = (req, res) => {
+exports.getEdit = async (req, res) => {
   console.log("Get Edit");
   const user = req.user;
   const courseId = req.params.courseId;
-  res.render("edit-course.hbs", { title: "Edit Course", user, courseId });
+  const info = await Course.findById(courseId);
+  res.render("edit-course.hbs", { title: "Edit Course", user, courseId, info });
 };
 
 exports.postEdit = asyncHandler(async (req, res) => {

@@ -10,7 +10,7 @@
       type="text"
       class="form-control"
       placeholder="Course name"
-      value=""
+      value="{{info.title}}"
       name="title"
     />
   </div>
@@ -20,7 +20,7 @@
       class="form-control"
       placeholder="Description"
       name="description"
-    ></textarea>
+    >{{info.description}}</textarea>
   </div>
   <div class="form-group">
     <label for="imageUrl">Image url</label>
@@ -28,7 +28,7 @@
       type="text"
       class="form-control"
       placeholder="Image Url"
-      value=""
+      value="{{info.imageUrl}}"
       name="imageUrl"
     />
   </div>
@@ -38,6 +38,7 @@
       class="form-check-input"
       id="check-box"
       name="isPublic"
+      value="{{info.isPublic}}"
     />
     <label class="form-check-label" for="check-box">Public</label>
   </div>
